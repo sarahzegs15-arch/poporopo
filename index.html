@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#527c3a">
+  <meta name="description" content="Una pequeña aventura de bloques llena de secretos.">
+  <title>Poporopo — Nuestro mundo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">▦</span>
+        <div><strong>POPOROPO</strong><small>NUESTRO MUNDO</small></div>
+      </div>
+      <div class="hud">
+        <span class="hud-label">OBJETOS</span>
+        <strong id="counter">0 / 4</strong>
+        <button id="resetBtn" class="small-button" title="Reiniciar aventura">↻</button>
+      </div>
+    </header>
+
+    <section class="game-frame" aria-label="Mundo explorable de bloques">
+      <canvas id="game" aria-label="Mapa del juego"></canvas>
+      <div class="game-label" id="areaLabel">PRADERA</div>
+      <div class="hint" id="hint">Explora el mapa. Acércate a algo para interactuar.</div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="controls-row">
+      <div class="instructions">
+        <strong>Cómo jugar</strong>
+        <span><kbd>WASD</kbd> / <kbd>↑↓←→</kbd> moverte · <kbd>E</kbd> interactuar</span>
+      </div>
+      <button id="actionBtn" class="action-button">INTERACTUAR <span> E </span></button>
+    </section>
+
+    <section class="mobile-controls" aria-label="Controles táctiles">
+      <div class="dpad">
+        <button data-dir="up" aria-label="Mover arriba">▲</button>
+        <button data-dir="left" aria-label="Mover a la izquierda">◀</button>
+        <button data-dir="down" aria-label="Mover abajo">▼</button>
+        <button data-dir="right" aria-label="Mover a la derecha">▶</button>
+      </div>
+      <button id="mobileAction" class="action-button mobile-action">USAR <span>↵</span></button>
+    </section>
+
+    <footer>
+      <span>Un mundo pequeño, hecho con bloques.</span>
+      <span id="saveStatus">Progreso guardado en este dispositivo</span>
+    </footer>
+  </main>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top"><span id="modalIcon">▣</span><button id="closeModal" aria-label="Cerrar">×</button></div>
+      <p class="eyebrow" id="modalEyebrow">OBJETO DESCUBIERTO</p>
+      <h1 id="modalTitle">Un secreto</h1>
+      <p id="modalText"></p>
+      <button id="modalContinue" class="action-button">SEGUIR EXPLORANDO <span>→</span></button>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
